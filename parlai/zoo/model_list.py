@@ -2910,4 +2910,28 @@ Finished evaluating tasks ['google_sgd_simulation_splits:OutDomainSystemTeacher'
             [GPT2ComboSearchQuery]: ParlAI: A new software platform for dialog research. Image credit: AI Research, ML Applications
         """,
     },
+    {
+        "title": "FairScore Demographic Perturber",
+        "id": "perturber",
+        "path": "zoo:fairscore/model",
+        "agent": "bart",
+        "task": "jsonfile",
+        "project": "https://github.com/facebookresearch/ResponsibleNLP",
+        "description": (
+            "FairScore Demographic Perturber - a controlled generation BART model trained to rewrite text to change demographic "
+            "references along gender, race and age axes."
+        ),
+        "example": ("parlai i -m bart -mf zoo:fairscore/model"),
+        "result": """
+            Enter Your Message: Jane, man <PERT_SEP> Jane cooks dinner for her family every night.
+            [Bart]: John cooks dinner for his family every night.
+            Enter Your Message: [DONE]
+            CHAT DONE
+
+            ... preparing new chat...
+
+            Enter Your Message: old, young <PERT_SEP> The old man tripped and fell, dropping his groceries.
+            [Bart]: The young man tripped and fell, dropping his groceries.
+        """,
+    },
 ]
